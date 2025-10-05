@@ -18,11 +18,11 @@ body {
   background-color: rgb(var(--background-color-rgb));
 } */
 
-body {
+/* body {
   @apply bg-slate-100 dark:bg-slate-900 dark:text-gray-200;
 }
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
