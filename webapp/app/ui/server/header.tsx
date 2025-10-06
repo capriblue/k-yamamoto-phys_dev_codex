@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import Image from 'next/image'
-import { DarkModeButton } from '../client_ui/darkModeButton';
+import { DarkModeButton } from '../client/darkModeButton';
 
 const linkTitleEn = [
     {

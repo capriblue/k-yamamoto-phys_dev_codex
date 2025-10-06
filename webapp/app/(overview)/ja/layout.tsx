@@ -1,27 +1,28 @@
 
-import ClientHead from "@/app/client_ui/clientHead"
+// import ClientHead from "@/app/client_ui/clientHead"
 import { Inter, Noto_Sans_JP } from "next/font/google";
-import "./globals.css";
-import { BottomNav, NavBar } from "@/app/ui/header";
-import { Provider } from 'jotai'
-const inter = Inter({ subsets: ["latin"] , display: 'swap', });
-const note_sans_jp = Noto_Sans_JP({ subsets: ["latin"]})
+// import "./globals.css";
+// import { BottomNav, NavBar } from "@/app/ui/header";
+// import { Provider } from 'jotai'
+// const inter = Inter({ subsets: ["latin"] , display: 'swap', });
+// const note_sans_jp = Noto_Sans_JP({ subsets: ["latin"], preload: false})
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${inter.className} ${note_sans_jp.className}`}>
-      <Provider>
-      <ClientHead/>
+    // <html lang="ja" className={`${inter.className} ${note_sans_jp.className}`}>
+    <html lang="ja">
+      {/* <Provider> */}
+      {/* <ClientHead/> */}
       <body>
-        <NavBar />
+        {/* <NavBar /> */}
         <main className="max-w-4xl mx-auto" >
         {children}
         </main>
       </body>
-      </Provider>
+      {/* </Provider> */}
     </html>
   );
 }

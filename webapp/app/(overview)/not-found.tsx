@@ -1,5 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { MetadataGenerator } from "./lib/metadata";
+import { MetadataGenerator } from "../lib/metadata";
 
 export const metadata: Metadata = MetadataGenerator("ページが見つかりません（404）", "お探しのページが見つかりませんでした。URLが間違っている可能性があります。");
 export default function Page() {

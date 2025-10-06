@@ -17,5 +17,3 @@ const detectUserLang = (): string => {
     } 
     return "en";
 }
-
-
