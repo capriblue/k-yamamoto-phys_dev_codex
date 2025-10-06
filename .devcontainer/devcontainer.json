@@ -16,7 +16,10 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"formulahendry.auto-rename-tag",
+				"bradlc.vscode-tailwindcss"
+
 			]
 		}
 	}
