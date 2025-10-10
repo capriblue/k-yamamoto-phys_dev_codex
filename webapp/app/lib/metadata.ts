@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 // import { OGPheight, OGPwidth } from "./ogp_utility/createOGP" // 将来OGPを自動生成できるようにする。
-import general_data from "../site_data/general.json";
+import general_data from "@/app/site_data/_metadata.json";
 export const MetadataGenerator: (title: string, description: string, ogp_path?: string) => Metadata = (title, description, ogp_path = `${process.env.PUBLIC_URL}/ogp/other_page.png`) =>  {
     return {
     title: {
