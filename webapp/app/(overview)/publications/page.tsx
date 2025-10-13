@@ -1,7 +1,7 @@
 import type { ResolvingMetadata, Metadata } from "next";
 import { MetadataGenerator } from "@/app/lib/metadata";
-import { loadYAML } from "@/app/lib/file-loader"
-
+import paper_data from "@/app/site_data/paper_regular.yml"
+import conference_data from "@/app/site_data/paper_conference.yml"
 import React from "react";
 type Paper = {
     title: string;
@@ -17,8 +17,8 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
 }
 
 export default async function Page() {
-    const regular_paper = loadYAML("app/site_data/paper_regular.yml") as Paper[];
-    const conference_paper = loadYAML("app/site_data/paper_conference.yml") as Paper[];
+    const regular_paper = paper_data as Paper[];
+    const conference_paper = conference_data as Paper[];
     return (
         <div className="m-2 p-2 prose">
             <h1>Publications</h1>

@@ -2,8 +2,8 @@ import type { ResolvingMetadata, Metadata } from "next";
 import Link from "next/link"
 import { FaHome, FaSearch, FaBook } from 'react-icons/fa';
 import { MetadataGenerator } from "@/app/lib/metadata";
-import { loadYAML } from "@/app/lib/file-loader"
 import { convertMarkdownToHtml } from "@/app/lib/markdown"
+import conference_data from "@/app/site_data/presentation.yml"
 import dayjs from "dayjs";
 import React from "react";
 type Presentation = {
@@ -26,7 +26,7 @@ export async function generateMetadata(parent: ResolvingMetadata): Promise<Metad
 }
 
 export default async function Page() {
-    const conference_unsorted = loadYAML("app/site_data/presentation.yml") as Presentation[];
+    const conference_unsorted = conference_data as Presentation[];
     const conference = conference_unsorted.sort((a, b) => (a.date < b.date ? 1 : -1));
     const current = new Date();
     const upcoming = conference.filter(p => dayjs(p.date).isAfter(current)).sort((a,b) => (a.date < b.date ? -1 : 1));

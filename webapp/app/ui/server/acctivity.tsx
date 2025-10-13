@@ -1,5 +1,5 @@
-import { loadYAML } from "@/app/lib/file-loader"
 import { convertMarkdownToHtml } from "@/app/lib/markdown"
+import activity_data from "@/app/site_data/activity.yml"
 import dayjs from "dayjs";
 export type activityEntry = {
     date: Date[] | Date; // 単一の日付の場合は文字列、複数の日付の場合は文字列の配列
@@ -9,7 +9,7 @@ export type activityEntry = {
     };
 }
 export default function Acctivity({lang, limit}: {lang: string, limit?: number}) {
-    const activityData = loadYAML("app/site_data/activity.yml") as activityEntry[];
+    const activityData = activity_data as activityEntry[];
     return (
         <>
             <ul>
