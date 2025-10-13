@@ -13,4 +13,4 @@ export default async function Page() {
             <div dangerouslySetInnerHTML={{ __html: htmlContent || "<p>Error loading content.</p>" }} />
         </div>
     );
-}\
+}
