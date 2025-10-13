@@ -3,10 +3,11 @@
 import { useAtom } from "jotai"; 
 import { EngAtom } from "@/app/lib/atom"
 import { usePathname, useRouter } from 'next/navigation';
-
+import { siteMetadata } from "@/app/site_data/_metadata";
 export const LangButton = () => {
     const [isEnglish, setIsEnglish] = useAtom(EngAtom);
     const currentPath = usePathname();
+    if (siteMetadata.noEnglish.includes(currentPath)) return <></>;
     const locale = currentPath.split("/")[1];
     const router = useRouter();
     // console.log(locale, currentPath)

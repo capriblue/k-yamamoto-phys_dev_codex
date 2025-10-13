@@ -128,5 +128,6 @@ export const siteMetadata = {
                 href: "http://cond.scphys.kyoto-u.ac.jp/"
             }
         ]
-    }
+    },
+    noEnglish: ["/ja/amuse"]
 }
