@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 // import { OGPheight, OGPwidth } from "./ogp_utility/createOGP" // 将来OGPを自動生成できるようにする。
-import general_data from "@/app/site_data/_metadata.json";
+import {siteMetadata} from "@/app/site_data/_metadata.js";
 export const MetadataGenerator: (title: string, description: string, ogp_path?: string) => Metadata = (title, description, ogp_path = `${process.env.PUBLIC_URL}/ogp/other_page.png`) =>  {
+    const OGPwidth = 1200;
+    const OGPheight = 630;
     return {
     title: {
-        absolute: `${title} | ${general_data.name.en}`,
+        absolute: `${title} | ${siteMetadata.name.en}`,
     },
     metadataBase: new URL(process.env.PUBLIC_URL as string),
     description: description,
@@ -34,25 +36,25 @@ export const MetadataGenerator: (title: string, description: string, ogp_path?: 
         images: ogp_path, // Must be an absolute URL
     },
     referrer: 'strict-origin-when-cross-origin',
-    keywords: [general_data.name.en, general_data.name.ja, general_data.organization.ja],
+        keywords: [siteMetadata.name.en, siteMetadata.name.ja, siteMetadata.organization.ja],
     formatDetection: {
         email: false,
         address: false,
         telephone: false,
     },
-    // openGraph: {
-    //     title: `${title} | ${general_data.name.en}`,
-    //     description: description,
-    //     url: process.env.PUBLIC_URL,
-    //     images: [
-    //         {
-    //             url: ogp_path, // Must be an absolute URL
-    //             width: OGPwidth,
-    //             height: OGPheight, 
-    //         },
-    //     ],
-    //     type: 'website',
-    // },
+    openGraph: {
+        title: `${title} | ${siteMetadata.name.en}`,
+        description: description,
+        url: process.env.PUBLIC_URL,
+        images: [
+            {
+                url: ogp_path, // Must be an absolute URL
+                width: OGPwidth,
+                height: OGPheight, 
+            },
+        ],
+        type: 'website',
+    },
 
 }
 }
