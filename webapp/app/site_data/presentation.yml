@@ -34,14 +34,14 @@
     Correlated Electron Systems 2020 (Plenary Express Session) @ Online, Sep. 2021
 - title: "TBA"
   presenter: 山本 和樹
-  date:
+  date: '2026-02-01'
   type: invited
   isInternational: false
   detail: >
     第10回「凝縮系理論の最前線」研究会 @ 湯河原, 2026年2月
 - title: "散逸の存在する冷却原子系におけるフェルミ超流動と臨界現象の理論"
   presenter: 山本 和樹
-  date:
+  date: '2025-03-01'
   type: invited
   isInternational: false
   detail: >
@@ -108,7 +108,7 @@
     Italy, Dec. 2025
 - title: "Correlation versus dissipation in a dissipative Anderson impurity model"
   presenter: Kazuki Yamamoto
-  date:
+  date: 2025-07-01
   type: talk
   isInternational: true
   detail: >
@@ -117,7 +117,7 @@
     Canada, Jul., 2025
 - title: "Strong correlation effects on Kondo physics in a dissipative Anderson model"
   presenter: Kazuki Yamamoto
-  date:
+  date: 2025-03-20
   type: talk
   isInternational: true
   detail: >
@@ -129,7 +129,7 @@
 - title: "Non-Hermitian Kondo effect and valence fluctuations in dissipative Anderson
     impurity models"
   presenter: Kazuki Yamamoto
-  date:
+  date: 2024-11-20
   type: talk
   isInternational: true
   detail: >
@@ -497,7 +497,7 @@
     of Industrial Science, Nov. 2018
 - title: "連続測定下の多体系における量子ジャンプの部分系揺らぎの普遍性"
   presenter: 山本 和樹
-  date:
+  date: 2025-09-01
   type: talk
   isInternational: false
   detail: >
