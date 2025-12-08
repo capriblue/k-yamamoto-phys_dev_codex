@@ -6,6 +6,8 @@ import { convertMarkdownToHtml } from "@/app/lib/markdown"
 import conference_data from "@/app/site_data/presentation.yml"
 import dayjs from "dayjs";
 import React from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import styles from "./presentations.module.css";
 type Presentation = {
     title: string;
     presenter: string;
@@ -29,7 +31,8 @@ export default async function Page() {
     const conference_unsorted = conference_data as Presentation[];
     const conference = conference_unsorted.sort((a, b) => (a.date < b.date ? 1 : -1));
     const current = new Date();
-    const upcoming = conference.filter(p => dayjs(p.date).isAfter(current)).sort((a,b) => (a.date < b.date ? -1 : 1));
+    const upcoming = conference.filter(p => dayjs(p.date).isAfter(current)).sort((a, b) => (a.date < b.date ? -1 : 1));
+    const others = conference.filter(p => p.type === "other" && dayjs(p.date).isBefore(current));
     return (
         <div className="m-2 p-2 prose">
             <h1>Presentations</h1>
@@ -43,37 +46,51 @@ export default async function Page() {
                         }
                     </ul></>
             }
+            <CollapsibleSection title="International Conference (Invited)" info={conference.filter(p => p.isInternational && p.type === "invited" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="Domestic Conferences (Invited)" info={conference.filter(p => !p.isInternational && p.type === "invited" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="International Conferences (Oral Presentations)" info={conference.filter(p => p.isInternational && p.type === "talk" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="Domestic Conferences (Oral Presentations)" info={conference.filter(p => !p.isInternational && p.type === "talk" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="International Conferences (Poster Presentations)" info={conference.filter(p => p.isInternational && p.type === "poster" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="Domestic Conferences (Poster Presentations)" info={conference.filter(p => !p.isInternational && p.type === "poster" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="Seminars" info={conference.filter(p => p.type === "seminar" && dayjs(p.date).isBefore(current))} />
+            <CollapsibleSection title="Other " info={conference.filter(p => p.type === "other" && dayjs(p.date).isBefore(current))} />
 
-            <h2>International</h2>
-            <ul>
-                {
-                    conference.filter(p => p.isInternational && dayjs(p.date).isBefore(current)).map((p, index, array) => (
-                        <ConferenceItem key={index} p={p} number={array.length - index} />
-                    ))
-                }
-            </ul>
-            <h2>Domestic</h2>
-            <ul>
-                {
-                    conference.filter(p => !p.isInternational && dayjs(p.date).isBefore(current)).map((p, index, array) => (
-                        <ConferenceItem key={index} p={p} number={array.length - index} />
-                    ))
-                }
-            </ul>
         </div>
     );
 }
+async function CollapsibleSection({ title, info }: { title: string; info: Presentation[]; }) {
+    return (
+        <>
+            {info.length > 0 && (
+                <details className="collapse bg-base-100">
+                    <summary className="collapse-title p-0"><h2 className="border-b border-base-600 flex justify-between content-center"><div>{title}</div><IoIosArrowDown className={`inline-block my-auto ${styles.arrow}`} /></h2></summary>
+                    <div className="collapse-content text-sm">
+                        <ul>
+                            {
+                                info.map((p, index, array) => (
+                                    <ConferenceItem key={index} p={p} number={array.length - index} />
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </details>
 
+            )}
+        </>
+    );
+}
 async function ConferenceItem({ p, number }: { p: Presentation, number: number }) {
     const badgeType = BadgeMap[p.type];
     const markdownContent = await convertMarkdownToHtml(p.detail);
     return (
         <li>
             <p>
-                {number}. <span className={`badge  badge-soft ${badgeType}`}>{p.type}</span>  "{p.title}"
+                {number}.&nbsp;
+                {/* <span className={`badge  badge-soft ${badgeType}`}>{p.type}</span> */}
+                "{p.title}"
             </p>
 
-            <p><UnderlinedText text={p.presenter} targets={[`Kazuki Yamamoto`, `山本 和樹`, `山本和樹`, `山本　和樹`]}/></p>
+            <p><UnderlinedText text={p.presenter} targets={[`Kazuki Yamamoto`, `山本 和樹`, `山本和樹`, `山本　和樹`]} /></p>
             <p dangerouslySetInnerHTML={{ __html: markdownContent || "" }} />
         </li>
     );

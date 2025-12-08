@@ -6,7 +6,7 @@
 #   detail: >
 - title: "Towards postselection-free measurement-induced phenomena in quantum many-body dynamics"
   presenter: Kazuki Yamamoto
-  date: 2025-10-5 # 出力はないのでnullでもよいですが、発表日を指定することで将来の発表予定が管理されます。
+  date: 2025-10-5 
   type: invited # seminar, talk, poster, other
   isInternational: true # (日本語でentryを書いている国内学会の場合はfalseにする)
   detail: > # markdown記法が使えます。
