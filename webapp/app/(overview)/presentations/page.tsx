@@ -38,7 +38,7 @@ export default async function Page() {
             <h1>Presentations</h1>
             {
                 upcoming.length > 0 && <>  <h2>Upcoming</h2>
-                    <ul>
+                    <ul className="list-none">
                         {
                             upcoming.map((p, index, array) => (
                                 <ConferenceItem key={index} p={p} number={array.length - index} />
@@ -65,7 +65,7 @@ async function CollapsibleSection({ title, info }: { title: string; info: Presen
                 <details className="collapse bg-base-100">
                     <summary className="collapse-title p-0"><h2 className="border-b border-base-600 flex justify-between content-center"><div>{title}</div><IoIosArrowDown className={`inline-block my-auto ${styles.arrow}`} /></h2></summary>
                     <div className="collapse-content text-sm">
-                        <ul>
+                        <ul className="list-none">
                             {
                                 info.map((p, index, array) => (
                                     <ConferenceItem key={index} p={p} number={array.length - index} />

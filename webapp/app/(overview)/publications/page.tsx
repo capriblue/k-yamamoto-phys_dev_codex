@@ -22,7 +22,7 @@ export default async function Page() {
     return (
         <div className="m-2 p-2 prose">
             <h1>Publications</h1>
-            <ul>
+            <ul className="list-none">
                 <li>
                     <a href="https://scholar.google.com/citations?user=qF3OqP0AAAAJ&hl=ja&oi=sra" target="_blank" rel="noopener noreferrer" >Google Scholar</a>
                 </li>
@@ -31,7 +31,7 @@ export default async function Page() {
                 </li>
             </ul>
             <h2>Original Paper</h2>
-            <ul>
+            <ul className="list-none">
                 {
                     regular_paper.map((paper, index, array) => (
                         <PaperItem key={index} paper={paper} number={array.length - index} />
@@ -39,7 +39,7 @@ export default async function Page() {
                 }
             </ul>
             <h2>Conference Proceedings</h2>
-            <ul>
+            <ul className="list-none">
                 {
                     conference_paper.map((paper, index, array) => (
                         <PaperItem key={index} paper={paper} number={array.length - index} />
@@ -47,7 +47,7 @@ export default async function Page() {
                 }
             </ul>
             <h2>Others</h2>
-            <ul>
+            <ul className="list-none">
                 <li><a href="https://repository.kulib.kyoto-u.ac.jp/dspace/handle/2433/283521" rel="noopener noreferrer" target="_blank">Doctoral dissertation</a></li>
                 <li>Master thesis (links can be requested)</li>
             </ul>
