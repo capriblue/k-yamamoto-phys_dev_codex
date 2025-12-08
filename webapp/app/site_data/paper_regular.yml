@@ -1,3 +1,21 @@
+- title: "Spin-Depairing-Induced Exceptional Fermionic Superfluidity"
+  authors: Soma Takemori, Kazuki Yamamoto, and Akihisa Koga
+  arXiv: 2504.19525
+  journal:
+    name: To appear in Physical Review Letters
+    url: https://journals.aps.org/prl/accepted/10.1103/ntjf-zb2v
+- title: "Generalized Nagaoka ferromagnetism accompanied by flavor-selective Mott states in an SU(N) Fermi-Hubbard model"
+  authors: Jutaro Fujii, Kazuki Yamamoto, and Akihisa Koga
+  arXiv: 2512.01264
+  jornal: null
+- title: "Elliptical-rod geometries enhance photonic band gaps in disordered stealthy hyperuniform photonic crystals"
+  authors: Kota Asakura, Kazuki Yamamoto, and Akihisa Koga
+  arXiv: 2510.20374
+  journal: null
+- title: "Kondo breakdown induced by the non-Hermitian complex hybridization"
+  authors: Kazuki Yamamoto, Masaya Nakagawa, and Norio Kawakami
+  arXiv: 2510.20186
+  journal: null
 - title: "Dimensionality effect on exceptional fermionic superfluidity with spin-dependent asymmetric hopping"
   authors: Soma Takemori, Kazuki Yamamoto, and Akihisa Koga # Kazuki Yamamotoという文字列に対して、自動的に下線を引くように設定
   arXiv: 2509.17414
@@ -8,11 +26,6 @@
   journal:
     name: Phys. Rev. B 112, 115136 (2025)
     url: https://journals.aps.org/prb/abstract/10.1103/vpb4-4d54
-
-- title: "Spin-Depairing-Induced Exceptional Fermionic Superfluidity"
-  authors: Soma Takemori, Kazuki Yamamoto, and Akihisa Koga
-  arXiv: 2504.19525
-  journal: null
 
 - title: "Measurement-Induced Crossover of Quantum Jump Statistics in Postselection-Free Many-Body Dynamics "
   authors: Kazuki Yamamoto and Ryusuke Hamazaki
@@ -54,14 +67,14 @@
     name: "Phys. Rev. B 108, 155114 (2023)"
     url: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.108.155114
 
-- title: "Localization p roperties in d isordered q uantum m any- b ody d ynamics under c ontinuous m easurement"
+- title: "Localization properties in disordered quantum many-body dynamics under continuous measurement"
   authors: Kazuki Yamamoto and Ryusuke Hamazaki
   arXiv: 2301.07290
   journal:
     name: "Phys. Rev. B 107, L220201 (2023)"
     url: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.L220201
 
-- title: "Universal description of dissipative Tomonaga-Luttinger liquids with SU N  spin symmetry: Exact spectrum and critical exponents "
+- title: "Universal description of dissipative Tomonaga-Luttinger liquids with SU (N)  spin symmetry: Exact spectrum and critical exponents "
   authors: Kazuki Yamamoto and Norio Kawakami
   arXiv: 2207.04395
   journal:
