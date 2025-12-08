@@ -3,10 +3,18 @@ import activity_data from "@/app/site_data/activity.yml"
 import dayjs from "dayjs";
 export type activityEntry = {
     date: Date[] | Date; // 単一の日付の場合は文字列、複数の日付の場合は文字列の配列
+    label: "publication" | "activity" | "award" | "appointment" | "misc";
     content: {
         ja?: string;
         en?: string;
     };
+}
+const BadgeMap = {
+    award: "badge-warning",
+    activity: "badge-info",
+    publication: "badge-success",
+    appointment: "badge-accent",
+    misc: "badge-natural"
 }
 export default function Acctivity({lang, limit}: {lang: string, limit?: number}) {
     const activityData = activity_data as activityEntry[];
@@ -25,8 +33,10 @@ export default function Acctivity({lang, limit}: {lang: string, limit?: number})
     );
 }
 
+
 async function ActivityItem({ activity, lang }: { activity: activityEntry, lang: string }) {
     let dateString: string;
+    const badgeType = BadgeMap[activity.label];
     const compileString = lang === "ja" ? "YYYY年MM月DD日" : "MMM. DD, YYYY";
     if (Array.isArray(activity.date)) {
         dateString = activity.date.map(date => dayjs(date).format(compileString)).join(" ~ ");
@@ -40,7 +50,7 @@ async function ActivityItem({ activity, lang }: { activity: activityEntry, lang:
     const html_content = await convertMarkdownToHtml(markdown_content);
     return (
         <div>
-            <strong>{dateString}</strong>
+            <strong>{dateString}</strong> <span className={`badge  badge-soft ${badgeType}`}>{activity.label}</span>
             <div className="prose" dangerouslySetInnerHTML={{ __html: html_content }} />
         </div>
     );

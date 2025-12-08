@@ -1,7 +1,7 @@
 import { remark } from "remark";
 import { visit } from "unist-util-visit";
 import type { Plugin } from "unified";
-import type { Root, Element } from "hast";
+import type { Root, Element, RootContent, ElementContent } from "hast";
 
 import remarkRehype from "remark-rehype";
 import rehypeExternalLinks from "rehype-external-links";
@@ -20,7 +20,20 @@ export async function convertMarkdownToHtml(markdownString: string): Promise<str
 
     return processedContent.toString();
 }
+export async function convertMarkdownToHtmlWithSectionize(markdownString: string): Promise<string> {
+    const processedContent = await remark()
+        .use(remarkRehype) // Markdown → HTML AST に変換
+        .use(rehypeExternalLinks, {
+            target: "_blank",
+            rel: ["nofollow", "noopener", "noreferrer"]
+        })
+        .use(rehyperImageWithCaption) // 画像にキャプションを追加
+        .use(rehypeSectionize) // セクション分割
+        .use(rehypeStringify) // HTML AST → HTML文字列に変換
+        .process(markdownString);
 
+    return processedContent.toString();
+}
 const rehyperImageWithCaption: Plugin<[], Root> = () => {
     return (tree) => {
         visit(tree, 'element', (node, index, parent) => {
@@ -55,3 +68,65 @@ const rehyperImageWithCaption: Plugin<[], Root> = () => {
         })
     }
 }
+let sectionIndex = 0;
+
+const rehypeSectionize: Plugin<[], Root> = () => {
+    return (tree) => {
+        const newChildren: RootContent[] = [];
+        let currentSectionChildren: ElementContent[] = [];
+
+        const pushSection = () => {
+            const isEven = sectionIndex % 2 === 0; // 偶数なら true
+
+            const bgClass = isEven ? "bg-gray-50" : "bg-blue-50";
+
+            newChildren.push({
+                type: "element",
+                tagName: "section",
+                properties: {
+                    className: [
+                        "w-screen",
+                        "relative",
+                        "left-1/2",
+                        "right-1/2",
+                        "ml-[-50vw]",
+                        "mr-[-50vw]",
+                        bgClass,
+                    ],
+                },
+                children: [
+                    {
+                        type: "element",
+                        tagName: "div",
+                        properties: {
+                            className: ["max-w-4xl", "mx-auto", "px-4", "py-1"],
+                        },
+                        children: currentSectionChildren,
+                    },
+                ],
+            });
+
+            sectionIndex++;
+        };
+
+        for (const node of tree.children) {
+            if (node.type === "element" && node.tagName === "hr") {
+                if (currentSectionChildren.length > 0) {
+                    pushSection();
+                    currentSectionChildren = [];
+                }
+            } else {
+                if (node.type !== "doctype") {
+                    currentSectionChildren.push(node);
+                }
+            }
+        }
+
+        // 最後に残った section を追加
+        if (currentSectionChildren.length > 0) {
+            pushSection();
+        }
+
+        tree.children = newChildren;
+    };
+};
