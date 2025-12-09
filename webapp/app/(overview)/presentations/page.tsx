@@ -23,7 +23,7 @@ const BadgeMap = {
     poster: "badge-accent",
     other: "badge-natural"
 }
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     return MetadataGenerator(`Presentations`, `presentations by Dr. Kazuki Yamamoto`);
 }
 

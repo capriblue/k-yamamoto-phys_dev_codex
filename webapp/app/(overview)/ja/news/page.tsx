@@ -5,7 +5,7 @@ import { MetadataGenerator } from "@/app/lib/metadata";
 import React from "react";
 import Acctivity from "@/app/ui/server/acctivity";
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     return MetadataGenerator(`最近の活動`, `山本和樹の最近の活動と更新情報`);
 }
 

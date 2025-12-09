@@ -12,7 +12,7 @@ type Paper = {
         url: string;
     };
 }
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     return MetadataGenerator(`Publications`, `List of academic publications by Dr. Kazuki Yamamoto`);
 }
 

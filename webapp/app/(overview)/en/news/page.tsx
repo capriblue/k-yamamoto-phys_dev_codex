@@ -5,7 +5,7 @@ import { MetadataGenerator } from "@/app/lib/metadata";
 import React from "react";
 import Acctivity from "@/app/ui/server/acctivity";
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     return MetadataGenerator(`news`, `recent activities and updates for Dr. Kazuki Yamamoto`);
 }
 

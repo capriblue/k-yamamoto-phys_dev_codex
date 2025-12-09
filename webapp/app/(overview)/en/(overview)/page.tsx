@@ -4,8 +4,12 @@ import { MetadataGenerator } from "@/app/lib/metadata";
 import Acctivity from "@/app/ui/server/acctivity";
 import { FaArrowRight } from "react-icons/fa";
 import { Crousel } from "@/app/ui/client/crousel";
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
-    return MetadataGenerator(`Home`, `Dr. Kazuki Yamaomoto's personal website`);
+
+export async function generateMetadata(): Promise<Metadata> {
+    return MetadataGenerator(
+        `Home`,
+        `Dr. Kazuki Yamaomoto's personal website`
+    );
 }
 import { siteMetadata } from "@/app/site_data/_metadata";
 export default async function Page() {

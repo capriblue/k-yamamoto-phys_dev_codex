@@ -2,7 +2,7 @@ import type { ResolvingMetadata, Metadata } from "next";
 import { MetadataGenerator } from "@/app/lib/metadata";
 import cv_ja from "@/app/site_data/cv_ja.md"
 import { convertMarkdownToHtml } from "@/app/lib/markdown";
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {   
+export async function generateMetadata(): Promise<Metadata> {   
     return MetadataGenerator(`CV(日本語)`, `山本和樹の履歴`); 
 }
 

@@ -5,7 +5,7 @@ import { MetadataGenerator } from "@/app/lib/metadata";
 import Acctivity from "@/app/ui/server/acctivity";
 import { Crousel } from "@/app/ui/client/crousel";
 import { siteMetadata } from "@/app/site_data/_metadata";
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     return MetadataGenerator(`ホーム`, `山本和樹のホームページ`);
 }
 

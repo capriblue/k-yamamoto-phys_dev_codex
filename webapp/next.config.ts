@@ -1,22 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* config options here */
   output: "export",
-
-  // ★ Webpack を明示的に有効化する
+  // Turbopackの設定を削除し、webpackの設定を追加
   webpack: (config) => {
-    // YAMLロード対応
     config.module.rules.push({
-      test: /\.(ya?ml)$/,
-      use: "yaml-loader",
-      type: "json"
+      test: /\.ya?ml$/,
+      use: 'yaml-loader',
     });
 
-    // Markdown を raw text として読み込む
     config.module.rules.push({
       test: /\.md$/,
-      use: "raw-loader",
-      type: "asset/source"
+      use: 'text-loader',
     });
 
     return config;

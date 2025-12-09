@@ -2,7 +2,7 @@ import type { ResolvingMetadata, Metadata } from "next";
 import { MetadataGenerator } from "@/app/lib/metadata";
 import research_ja from "@/app/site_data/research_ja.md"
 import { convertMarkdownToHtmlWithSectionize } from "@/app/lib/markdown";
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {   
+export async function generateMetadata(): Promise<Metadata> {   
     return MetadataGenerator(`研究`, `研究の興味とプロジェクト`); 
 }
 
