@@ -9,7 +9,7 @@
 	"forwardPorts": [
 		3000
 	],
-	"postCreateCommand": "cd /workspaces/yamamoto_web/webapp && npm install",
+	"postCreateCommand": "cd /workspaces/yamamoto_web/webapp && npm install && pip install -r requirements.txt",
 	"customizations": {
 		"vscode": {
 			"extensions": [
