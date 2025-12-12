@@ -39,10 +39,20 @@ function LangSetting() {
     useEffect(()=> {
         if (locale === "ja") {
             // console.log("Language set to Japanese");
+            localStorage.setItem('lang', "ja");
             setIsEnglish(false);
         } else if (locale === "en") {
             // console.log("Language set to English");
+            localStorage.setItem('lang', "en");
             setIsEnglish(true);
+        } else {
+            const savedLang = localStorage.getItem('lang');
+            // console.log("calling savedLang: ", savedLang)
+                if (savedLang !== "ja") {
+                    setIsEnglish(true);
+                } else {
+                    setIsEnglish(false);
+                }
         }
     }, [locale, setIsEnglish]);
 
@@ -58,6 +68,7 @@ function LangSetting() {
     // }, [setIsEnglish]);
     
     // useEffect(() => {
+    //     console.log("Saving language:", isEnglish ? "en" : "ja");
     //     localStorage.setItem('lang', isEnglish ? "en" : "ja");
     // }, [isEnglish]);
     return <></>;
