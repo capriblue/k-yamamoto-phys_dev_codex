@@ -1,7 +1,7 @@
 
 import ClientHead from "@/app/ui/client/clientHead"
+import "katex/dist/katex.min.css";
 import "@/app/globals.css";
-
 import  NavBar from "./ui/client/header";
 import { Provider } from 'jotai'
 import { siteMetadata } from "./site_data/_metadata";
@@ -32,7 +32,7 @@ export default function RootLayout({
         <main className="max-w-4xl mx-auto " >
         {children}
         </main>
-        <footer className="font-light text-sm flex justify-center">
+        <footer className="mt-5 font-light text-sm flex justify-center">
           <p className="">
           ©{year} {siteMetadata.name.en}. All Right Reserved.
             </p></footer>

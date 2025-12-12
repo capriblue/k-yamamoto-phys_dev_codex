@@ -42,3 +42,11 @@ https://daisyui.com/theme-generator/ */
   --depth: 1;
   --noise: 0;
 }
+
+.katex {
+  font-size: 1em !important;
+  ;
+}
+.katex .katex-mathml {
+    user-select: none !important; /* 数式の重複したコピーを禁止し、コピペがうまくいくようにする */
+}
