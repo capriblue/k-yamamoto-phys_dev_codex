@@ -42,7 +42,7 @@ export default async function Page() {
                     <ul className="list-none">
                         {
                             upcoming.map((p, index, array) => (
-                                <ConferenceItem key={index} p={p} number={array.length - index} />
+                                <ConferenceItem key={index} p={p} number={index+1} />
                             ))
                         }
                     </ul></>

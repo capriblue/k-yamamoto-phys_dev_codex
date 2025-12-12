@@ -47,7 +47,7 @@ export default async function Page() {
             <ul className="list-none">
                 {
                     preprints.map((paper, index, array) => (
-                        <PaperItem key={index} paper={paper} number={array.length - index} />
+                        <PaperItem key={index} paper={paper} number={array.length - index + total_published_count} />
                     ))
                 }
             </ul>
