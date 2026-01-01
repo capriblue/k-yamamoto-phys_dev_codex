@@ -3,7 +3,7 @@
 ## Research Interests
 
 * **Condensed Matter Physics**: Strongly correlated quantum (electron) systems
-* **AMD(Atomic Morecular, and Optical) Physics**: Ultracold atoms, Open quantum systems, Non-Hermitian systems
+* **AMO(Atomic Morecular, and Optical) Physics**: Ultracold atoms, Open quantum systems, Non-Hermitian systems
 * **Quantum Many-Body Physics/Quantum information**: Continuously monitored systems
 
 ## Keywords
