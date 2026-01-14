@@ -1,3 +1,10 @@
+- date: [2026-02-01, 2026-02-14]
+  label: seminar
+  content:
+    ja: >
+      スイスのフリーブール大学とETHチューリッヒに滞在し、共同研究とセミナーを行います。
+    en: >
+      I am visiting Univ. of Fribourg and ETH Zürich to have a seminar.
 - date: "2025-12-23"
   label: publication
   content:
