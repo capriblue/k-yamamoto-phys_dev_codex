@@ -10,7 +10,7 @@
 		3000
 	],
 	"mounts": [
-		"source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind"
+		"source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind"
 	],
 	"postCreateCommand": "cd /workspaces/yamamoto_web/webapp && npm install && pip install -r requirements.txt",
 	"customizations": {
@@ -21,7 +21,8 @@
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
 				"formulahendry.auto-rename-tag",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"openai.chatgpt"
 			]
 		}
 	}
