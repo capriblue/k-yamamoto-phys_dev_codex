@@ -9,6 +9,7 @@ type Paper = {
     authors: string;
     arXiv?: string;
     year?: number;
+    note?: string;
     journal?: {
         name: string;
         url: string;
@@ -84,6 +85,7 @@ export default async function Page() {
 }
 async function PaperItem({ paper, number }: { paper: Paper, number: number }) {
     const markdownContent = await convertMarkdownToHtml(`${number}. ${paper.title}`);
+    const noteContent = paper.note ? await convertMarkdownToHtml(paper.note) : null;
     return (
         <li>
              <p dangerouslySetInnerHTML={{ __html: markdownContent || "" }} />
@@ -97,6 +99,7 @@ async function PaperItem({ paper, number }: { paper: Paper, number: number }) {
                     </>)
                 }
             </p>
+            <p dangerouslySetInnerHTML={{ __html: noteContent || "" }} />
         </li>
     );
 }
