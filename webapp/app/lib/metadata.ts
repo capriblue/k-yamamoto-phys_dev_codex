@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 // import { OGPheight, OGPwidth } from "./ogp_utility/createOGP" // 将来OGPを自動生成できるようにする。
-import {siteMetadata} from "@/app/site_data/_metadata.js";
-export const MetadataGenerator: (title: string, description: string, ogp_path?: string) => Metadata = (title, description, ogp_path = `${process.env.PUBLIC_URL}/ogp/other_page.png`) =>  {
+import {siteMetadata} from "@/personal/_metadata.js";
+export const MetadataGenerator: (title: string, description: string, ogp_path?: string) => Metadata = (title, description, ogp_path = `${siteMetadata.publicURL}/ogp/other_page.png`) =>  {
     const OGPwidth = 1200;
     const OGPheight = 630;
     return {
     title: {
         absolute: `${title} | ${siteMetadata.name.en}`,
     },
-    metadataBase: new URL(process.env.PUBLIC_URL as string),
+        metadataBase: new URL(siteMetadata.publicURL), 
     description: description,
     robots: {
         index: true,
@@ -36,7 +36,7 @@ export const MetadataGenerator: (title: string, description: string, ogp_path?: 
         images: ogp_path, // Must be an absolute URL
     },
     referrer: 'strict-origin-when-cross-origin',
-        keywords: [siteMetadata.name.en, siteMetadata.name.ja, siteMetadata.organization.ja],
+        keywords: [siteMetadata.name.en, siteMetadata.name.ja, siteMetadata.organization.ja, siteMetadata.organization.en],
     formatDetection: {
         email: false,
         address: false,
@@ -45,7 +45,7 @@ export const MetadataGenerator: (title: string, description: string, ogp_path?: 
     openGraph: {
         title: `${title} | ${siteMetadata.name.en}`,
         description: description,
-        url: process.env.PUBLIC_URL,
+        url: siteMetadata.publicURL,
         images: [
             {
                 url: ogp_path, // Must be an absolute URL
