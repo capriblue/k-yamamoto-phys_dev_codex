@@ -130,5 +130,5 @@ export const siteMetadata = {
             }
         ]
     },
-    noEnglish: ["/ja/amuse"]
+    noEnglish: ["/ja/amuse", "/not-found"]
 }
