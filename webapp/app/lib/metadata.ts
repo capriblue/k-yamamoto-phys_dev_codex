@@ -22,13 +22,13 @@ export const MetadataGenerator: (title: string, description: string, ogp_path?: 
             'max-image-preview': 'large',
         },
     },
-    icons: {
-        apple: 'favicons/apple-touch-icon.png',
-        icon: '/favicons/icon.png',
-        // other: [{
-        //     rel: "manifest", url: "/favicons/site.webmanifest"
-        // }, { rel: "mask-icon", url: "/favicons/safari-pinned-tab.svg" }],
-    },
+    // icons: {
+    //     apple: 'favicons/apple-touch-icon.png',
+    //     icon: '/favicons/icon.png',
+    //     // other: [{
+    //     //     rel: "manifest", url: "/favicons/site.webmanifest"
+    //     // }, { rel: "mask-icon", url: "/favicons/safari-pinned-tab.svg" }],
+    // },
     twitter: {
         card: 'summary_large_image',
         title,
