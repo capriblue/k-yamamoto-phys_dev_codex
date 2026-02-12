@@ -6,7 +6,7 @@ import Acctivity from "@/app/ui/server/acctivity";
 import { Crousel } from "@/app/ui/client/crousel";
 import { siteMetadata } from "@/personal/_metadata";
 export async function generateMetadata(): Promise<Metadata> {
-    return MetadataGenerator(`ホームページ`, `山本和樹のホームページ`);
+    return MetadataGenerator(`ホームページ`, `山本和樹のホームページ`, '/ja/');
 }
 
 export default async function Page() {

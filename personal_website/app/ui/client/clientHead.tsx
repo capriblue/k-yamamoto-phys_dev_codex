@@ -1,9 +1,5 @@
 'use client'
 
-import { useEffect } from "react";
-import { useAtom } from "jotai";
-import {  EngAtom } from "@/app/lib/atom";
-import { usePathname } from "next/navigation";
 import { LangSetting } from "./langBotton";
 export default function ClientHead() {
     return (

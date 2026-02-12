@@ -3,7 +3,7 @@ import { MetadataGenerator } from "@/app/lib/metadata";
 import cv_en from "@/personal/cv_en.md"
 import { convertMarkdownToHtml } from "@/app/lib/markdown";
 export async function generateMetadata(): Promise<Metadata> {
-    return MetadataGenerator(`CV`, `CV for Dr. Kazuki Yamamoto`);
+    return MetadataGenerator(`CV`, `CV for Dr. Kazuki Yamamoto`, '/cv');
 }
 
 export default async function Page() {

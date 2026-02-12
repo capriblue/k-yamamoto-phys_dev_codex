@@ -16,7 +16,7 @@ type Paper = {
     };
 }
 export async function generateMetadata(): Promise<Metadata> {
-    return MetadataGenerator(`Publications`, `List of academic publications by Dr. Kazuki Yamamoto`);
+    return MetadataGenerator(`Publications`, `List of academic publications by Dr. Kazuki Yamamoto`, '/ja/publications');
 }
 
 export default async function Page() {
@@ -36,7 +36,7 @@ export default async function Page() {
     const conference_paper = conference_data as Paper[];
     return (
         <div className="m-2 p-2 prose">
-            <h1>Publications</h1>
+            <h1>出版物</h1>
             <ul className="list-none">
                 <li>
                     <a href="https://scholar.google.com/citations?user=qF3OqP0AAAAJ&hl=ja&oi=sra" target="_blank" rel="noopener noreferrer" >Google Scholar</a>
@@ -45,7 +45,7 @@ export default async function Page() {
                     <a href="https://www.webofscience.com/wos/author/record/ACR-5130-2022" target="_blank" rel="noopener noreferrer" >Web of Science</a>
                 </li>
             </ul>
-            <h2>Preprints</h2>
+            <h2>プレプリント</h2>
             <ul className="list-none">
                 {
                     preprints.map((paper, index, array) => (
@@ -53,7 +53,7 @@ export default async function Page() {
                     ))
                 }
             </ul>
-            <h2>Original Paper</h2>
+            <h2>査読付き論文</h2>
             {
                 published_papers_by_year.map(({ year, data }, index) => (
                     <React.Fragment key={index}>
@@ -67,7 +67,7 @@ export default async function Page() {
                     </ul>
                     </React.Fragment>))
             }
-            <h2>Conference Proceedings</h2>
+            <h2>学会発表論文集</h2>
             <ul className="list-none">
                 {
                     conference_paper.map((paper, index, array) => (
@@ -75,10 +75,10 @@ export default async function Page() {
                     ))
                 }
             </ul>
-            <h2>Others</h2>
+            <h2>その他</h2>
             <ul className="list-none">
-                <li><a href="https://repository.kulib.kyoto-u.ac.jp/dspace/handle/2433/283521" rel="noopener noreferrer" target="_blank">Doctoral dissertation</a></li>
-                <li>Master thesis (links can be requested)</li>
+                <li><a href="https://repository.kulib.kyoto-u.ac.jp/dspace/handle/2433/283521" rel="noopener noreferrer" target="_blank">博士論文</a></li>
+                <li>修士論文 (リンクはリクエスト可能)</li>
             </ul>
         </div>
     );

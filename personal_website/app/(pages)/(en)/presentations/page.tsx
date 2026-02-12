@@ -25,7 +25,7 @@ const BadgeMap = {
     poster: "badge-natural",
 }
 export async function generateMetadata(): Promise<Metadata> {
-    return MetadataGenerator(`Presentations`, `presentations by Dr. Kazuki Yamamoto`);
+    return MetadataGenerator(`Presentations`, `presentations by Dr. Kazuki Yamamoto`, '/presentations');
 }
 
 export default async function Page() {
